@@ -1,3 +1,15 @@
+char[] a = {'a', 'b', 'c'};
+char[] b = {'c', 'b', 'a'};
+
+String ss = new String(a);
+String tt = new String(b);
+
+System.out.println(ss); // "abc"
+System.out.println(tt); // "abc"
+
+
+
+
 242. Valid Anagram
 Easy
 
