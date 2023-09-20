@@ -42,6 +42,16 @@ s and t consist of lowercase English letters.
 Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Converte String to Arrays of characters
+//sorted this Arrays
+//convert Arrays to Strings
+//add Strings to HashSet
+//if (hashSet.size ==1) return true
+
+
+
+
 class Solution {
     public boolean isAnagram(String s, String t) 
     {
@@ -72,3 +82,6 @@ class Solution {
     }
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+The toCharArray() method takes O(n) time.
+The sort() method takes O(n log n) time.
+The new String() method takes O(n) time.
