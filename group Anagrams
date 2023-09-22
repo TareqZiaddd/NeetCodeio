@@ -1,0 +1,85 @@
+49. Group Anagrams
+Medium
+
+17167
+
+504
+
+Add to List
+
+Share
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+ 
+
+Example 1:
+
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+Example 2:
+
+Input: strs = [""]
+Output: [[""]]
+Example 3:
+
+Input: strs = ["a"]
+Output: [["a"]]
+ 
+
+Constraints:
+
+1 <= strs.length <= 104
+0 <= strs[i].length <= 100
+strs[i] consists of lowercase English letters.
+
+
+
+
+
+
+
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+//create hashMap
+//for on Array
+//char[] chars = strs[i].toCharArray();
+//Arrays.sort(chars);
+//create key String key =String.valueOf(chars);
+public class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        // إنشاء خريطة لتخزين الأناجيل حيث المفتاح هو السلسلة المرتبة والقيمة هي قائمة من السلاسل
+        Map<String, List<String>> anagrams = new HashMap<>();
+
+        // حلقة for تمر على جميع السلاسل في المصفوفة
+        for (int i = 0; i < strs.length; i++) {
+            String str = strs[i]; // استخراج السلسلة الحالية
+            char[] chars = str.toCharArray(); // تحويلها إلى مصفوفة من الأحرف
+            Arrays.sort(chars); // ترتيب الأحرف بشكل أبجدي
+
+            String key = String.valueOf(chars); // إنشاء مفتاح من المصفوفة المرتبة
+
+            // الحصول على القائمة المرتبطة بالمفتاح
+            List<String> group = anagrams.get(key);
+
+            // إذا كانت القائمة غير موجودة، قم بإنشاء قائمة جديدة وأضفها إلى الخريطة
+            if (group == null) {
+                group = new ArrayList<>();
+                anagrams.put(key, group);
+            }
+
+            // إضافة السلسلة الحالية إلى القائمة المرتبطة بالمفتاح
+            group.add(str);
+        }
+
+        // إعادة قائمة القيم (القوائم التي تحتوي على الأناجيل) كنتيجة
+        return new ArrayList<>(anagrams.values());
+    }
+}
