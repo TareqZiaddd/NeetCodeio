@@ -1,0 +1,84 @@
+125. Valid Palindrome
+Easy
+
+8179
+
+7843
+
+Add to List
+
+Share
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.
+
+ 
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+Example 2:
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+Example 3:
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+ 
+
+Constraints:
+
+1 <= s.length <= 2 * 105
+s consists only of printable ASCII characters.
+
+
+/*
+كتابة دالة بلغة بايثون أو الجافا تحقق من أن السلسلة s عبارة عن باليندروم.
+باليندروم هي عبارة تقرأ بنفس الطريقة من الأمام إلى الخلف بعد تحويل جميع الأحرف الكبيرة إلى أحرف صغيرة وإزالة جميع الأحرف غير الأبجدية.
+الأحرف الأبجدية تتضمن الأحرف والأرقام.
+إذا كانت السلسلة s عبارة عن باليندروم، ترجع الدالة true، وإلا ترجع الدالة false.
+أمثلة:
+*/
+//  s = s.toLowerCase();
+//  if(!Character.isDigit(s.charAt(i)) && !Character.isLetter(s.charAt(i)))
+class Solution {
+    
+    //left = 0;
+    //right=s.length()-1
+    //for String 
+    
+    
+    
+    public boolean isPalindrome(String s) {
+     
+        
+         s = s.toLowerCase().replaceAll("[^A-Za-z0-9]","");
+    int left=0;
+    int right =s.length()-1;
+   
+        
+    for(int i = 0 ;i<s.length();i++){
+        if(left==right){
+            break;
+        }
+     if (s.charAt(left)!=s.charAt(right)){
+         return false;
+     }   
+       left++;
+        right--;  
+        
+    }
+       
+       return true;   
+        
+    }
+}
+  
+...
+z
